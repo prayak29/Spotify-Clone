@@ -36,7 +36,7 @@ function Sidebar() {
       <div className="space-y-4">
         <div className="flex space-x-1">
           <img
-            className="w-25 items-center -ml-1.5 mb-2 cursor-pointer "
+            className="w-25 items-center -ml-1 mb-2 cursor-pointer md:w-[110px]"
             src="https://rb.gy/y9mwtb"
             alt=""
           />
@@ -46,7 +46,7 @@ function Sidebar() {
           <p> Home </p>
         </button>
         <button className="flex items-center space-x-2 hover:text-white">
-          <SearchIcon className="h-5 w-5 " />
+          <SearchIcon className="h-5 w-5" />
           <router href="/Body">
             <Link href="/searches">
               <p> Search </p>

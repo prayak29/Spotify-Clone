@@ -39,11 +39,10 @@ function Song({ order, track }) {
       <div className="flex items-center justify-between ml-auto md:ml-0">
         <p className="w-40  hidden md:inline">{track.track.album.name}</p>
         <div className="flex items-center space-x-4">
-          <HeartIcon className="h-4 w-5  " />
+          <HeartIcon className="h-4 w-5 hidden md:inline  " />
           <p>{millisToMinutesAndSeconds(track.track.duration_ms)}</p>
-          <DotsHorizontalIcon className="h-3 w-4" />
+          <DotsHorizontalIcon className="h-3 w-4 hidden md:inline" />
         </div>
-        <p className="h-4 w-6">{track.track.added_at}</p>
       </div>
     </div>
   );
