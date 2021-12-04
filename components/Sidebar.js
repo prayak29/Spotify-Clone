@@ -47,7 +47,9 @@ function Sidebar() {
         </button>
         <button className="flex items-center space-x-2 hover:text-white">
           <SearchIcon className="h-5 w-5" />
+          {/* Im also not sure why u r using router here since its not needed if you already have a link */}
           <router href="/Body">
+            {/* Here since you have already added the onClick so I created a file inside of pages directory (since nextjs has in-built routing) called searches.js which takes you to a search page. If you ever decide to change the href here make sure to change the name of the file too!!*/}
             <Link href="/searches">
               <p> Search </p>
             </Link>

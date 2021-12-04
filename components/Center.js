@@ -45,6 +45,8 @@ function Center() {
 
   console.log(playlist);
 
+  // Use the useEffect from our spotify redesign build for our recentlyPlayed playlists so you can fetch the recentlyPlayed and then set it to setRecentlyPlayed inside useRecoilState
+
   return (
     <div className=" flex-grow h-screen overflow-y-scroll scrollbar-hide ">
       <header className="absolute flex  space-x-[980px] top-5 right-8 justify-evenly">
