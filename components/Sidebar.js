@@ -16,7 +16,6 @@ import { useRouter } from "next/dist/client/router";
 
 function Sidebar() {
   const spotifyApi = useSpotify();
-  const router = useRouter();
   const { data: session, status } = useSession();
   const [playlists, setPlaylists] = useState([]);
   const [playlistId, setPlaylistId] = useRecoilState(playlistIdState);
@@ -43,15 +42,16 @@ function Sidebar() {
         </div>
         <button className="flex items-center space-x-2 hover:text-white">
           <HomeIcon className="h-5 w-5" />
-          <p> Home </p>
+          <Link href="/">
+            <p> Home </p>
+          </Link>
         </button>
         <button className="flex items-center space-x-2 hover:text-white">
           <SearchIcon className="h-5 w-5" />
-          <router href="/Body">
-            <Link href="/searches">
-              <p> Search </p>
-            </Link>
-          </router>
+
+          <Link href="/searches">
+            <p> Search </p>
+          </Link>
         </button>
         <button className="flex items-center space-x-2 hover:text-white">
           <LibraryIcon className="h-5 w-5" />

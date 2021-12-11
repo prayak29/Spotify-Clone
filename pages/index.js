@@ -1,10 +1,22 @@
 import Head from "next/head";
 import Center from "../components/Center";
 import Sidebar from "../components/Sidebar";
-import { getSession } from "next-auth/react";
+import { getSession, useSession } from "next-auth/react";
 import Player from "../components/Player";
+import { useRouter } from "next/dist/client/router";
 
 export default function Home() {
+  const router = useRouter();
+  const { status, data: session } = useSession({
+    onUnauthenticated() {
+      router.push("auth/login");
+    },
+  });
+
+  if (status === "loading") {
+    return <Loader/>
+  }
+
   return (
     <div className="bg-black h-screen overflow-hidden">
       <Head>
