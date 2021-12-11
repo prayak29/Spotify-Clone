@@ -1,26 +1,33 @@
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import Search from "./Search";
+import useSpotify from "../hooks/useSpotify";
 
-function Body({ spotifyapi }) {
+function Body() {
   const { data: session } = useSession();
+  const spotifyapi = useSpotify();
   const accessToken = session?.accessToken;
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [newReleases, setNewReleases] = useState([]);
 
-  useEffect(() => {
-    if (!accessToken) return;
-    spotifyapi.setAccessToken(accessToken);
-  }, [accessToken]);
-
   //searching...
   useEffect(() => {
     if (!search) return setSearchResults([]);
-    if (!accessToken) return;
 
     spotifyapi.searchTracks(search).then((res) => {
-      setSearchResults(res);
+      setSearchResults(
+        res.body.tracks.items.map((track) => {
+          return {
+            id: track.id,
+            artist: track.artists[0].name,
+            title: track.name,
+            uri: track.uri,
+            albumUrl: track.album.images[0].url,
+            popularity: track.popularity,
+          };
+        })
+      );
     });
   }, [search, accessToken]);
 
