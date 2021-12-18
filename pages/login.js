@@ -12,6 +12,8 @@ function Login({ providers }) {
     }
   }, [session]);
 
+ // if (session) return <Loader/>
+
   return (
     <div className="flex  flex-col items-center bg-black min-h-screen w-full justify-center">
       <img

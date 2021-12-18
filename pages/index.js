@@ -4,6 +4,7 @@ import Sidebar from "../components/Sidebar";
 import { getSession, useSession } from "next-auth/react";
 import Player from "../components/Player";
 import { useRouter } from "next/dist/client/router";
+import Body from "../components/Body";
 
 export default function Home() {
   const router = useRouter();
@@ -13,16 +14,18 @@ export default function Home() {
     },
   });
 
-  if (status === "loading") {
-    return <Loader/>
-  }
+  //if (status === "loading") {
+  //return <Loader />;
+  //
+
+  // console.log(session);
 
   return (
     <div className="bg-black h-screen overflow-hidden">
-      <Head>
+      {/*<Head>
         <title>Spotify 2.0</title>
         <link rel="icon" href="/favicon.ico" />
-      </Head>
+      </Head>*/}
       <main className="flex">
         <Sidebar />
         <Center />
